@@ -48,6 +48,12 @@ public class Account {
 	}
 	@Override
 	public boolean equals(Object obj) {
+		
+		Account a=null;
+		if(obj instanceof Account) {
+			a=(Account)obj;
+		}
+		
 		if (this == obj)
 			return true;
 		if (obj == null)
