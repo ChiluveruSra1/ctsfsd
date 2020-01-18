@@ -46,8 +46,8 @@ public class FlightBookingDAOImpl implements FlightBookingDAO {
 
 	@Override
 	public FlightBooking updateFlightBooking(FlightBooking fb1,int noofseats) throws Exception {
-		pStatement = connection.prepareStatement("update customer set noofseats=? where flightno=?");
-		pStatement.setInt(1, fb1.getNoofseats()-noofseats);
+		pStatement = connection.prepareStatement("update customer set noofseats=noofseats-? where flightno=?");
+		pStatement.setInt(1, noofseats);
 		pStatement.setString(2, fb1.getFlightno());
 		pStatement.executeUpdate();
 		return fb1;
