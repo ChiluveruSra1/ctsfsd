@@ -5,25 +5,15 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App {
 	public static void main(String[] args) {
-		/*
-		 * try { ApplicationContext context = new
-		 * ClassPathXmlApplicationContext("appContext.xml"); CustomerDao dao =
-		 * context.getBean("dao", CustomerDao.class); String
-		 * arr[]=UUID.randomUUID().toString().split("-"); Customer c =
-		 * dao.createCustomer(new Customer(arr[1], "John", "Doe", "john@email.com"));
-		 * System.out.println(c);
-		 * 
-		 * } catch (Exception e) { e.printStackTrace(); }
-		 */
-		ClassPathXmlApplicationContext context = null;
+
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CustomerConfig.class);
 
 		CustomerDao2 dao2;
 
-		context = new ClassPathXmlApplicationContext("appContext.xml");
 		dao2 = context.getBean("dao2", CustomerDao2.class);
 
 		int choice = 0;
@@ -46,7 +36,8 @@ public class App {
 				choice = Integer.parseInt(br.readLine().toString());
 				switch (choice) {
 				case 1:
-					System.out.println("enter the no. of customers u want to add: ");
+					System.err.println("\b Creating Customer");
+					System.out.print("enter the no. of customers u want to add: ");
 					int n = Integer.parseInt(br.readLine().toString());
 					for (int i = 0; i < n; i++) {
 						System.out.print(" First Name: ");
@@ -59,10 +50,10 @@ public class App {
 						Customer c = dao2.createCustomer(new Customer(arr[1], fName, lName, email));
 						System.out.println(c);
 						System.err.println("Create Customer Sucess ");
-						System.out.println("-------------------------------------------------------------\n");
 					}
 					break;
 				case 2:
+					System.err.println("\b Displaying all customers");
 					// list = dao2.displayAllCustomers();
 					// System.err.format("%-20s%-20s%-20s%-20s\n", "ID", "FIRST_NAME", "LAST_NAME",
 					// "EMAIL");
@@ -72,6 +63,7 @@ public class App {
 					});
 					break;
 				case 3:
+					System.err.println("\b finding customer by ID");
 					System.out.print("enter UID: ");
 					uId = br.readLine().toString();
 
@@ -85,6 +77,7 @@ public class App {
 					}
 					break;
 				case 4:
+					System.err.println("\b finding customer by last name");
 					System.out.print(" enter last name: ");
 					String lname = br.readLine().toString();
 					List<Customer> l3 = dao2.findByLname(customer, lname, rm);
@@ -97,6 +90,7 @@ public class App {
 					}
 					break;
 				case 5:
+					System.err.println("\b updating customer");
 					System.out.print(" UID : ");
 					uId = br.readLine().toString();
 					list = dao2.findById(customer, uId, rm);
@@ -120,6 +114,7 @@ public class App {
 					}
 					break;
 				case 6:
+					System.err.println("\b Deleting customer");
 					System.out.println("UID: ");
 					uId = br.readLine().toString();
 					list = dao2.findById(customer, uId, rm);
@@ -128,14 +123,14 @@ public class App {
 					} else {
 						Customer c = list.get(0);
 						c.setId(uId);
-							customer = dao2.deleteCustomer(c);
-					System.out.println("delected sucessfully");
+						customer = dao2.deleteCustomer(c);
+						System.out.println("delected sucessfully");
 					}
 					break;
 
 				case 0:
+					System.err.println("Dobbey baitiki\n nanne exit avamantava \b");
 					System.exit(0);
-					break;
 				default:
 					System.out.println("invalid choice");
 					break;
