@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 21, 2020 11:34:28 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+ <class name="com.hibernate.person.Person" table="PERSON">
+  <id name="id" type="java.lang.String">
+   <column name="ID"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="name" type="java.lang.String">
+   <column name="NAME"/>
+  </property>
+  <property generated="never" lazy="false" name="date" type="java.time.LocalDate">
+   <column name="DATE"/>
+  </property>
+ </class>
+</hibernate-mapping>
