@@ -7,12 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
+
 public class Image {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +29,12 @@ public class Image {
 
 	@OneToOne(mappedBy = "image", cascade = CascadeType.ALL)
 	private Album album;
+
+	@Override
+	public String toString() {
+		return "Image [imageId=" + imageId + ", imageURL=" + imageURL;
+	}
+
 	
 	
 	

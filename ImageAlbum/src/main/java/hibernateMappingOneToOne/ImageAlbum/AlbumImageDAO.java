@@ -6,6 +6,12 @@ import java.sql.SQLException;
 public interface AlbumImageDAO {
 	Album createAlbum(Album album) throws IOException, SQLException;
 
-	Album findbyId(String id) throws Exception;
+	void findbyId(int uId) throws SQLException, StackOverflowError;
+
+	/* void findByLname(String albumName) throws SQLException; */
+
+	Album updateAlbum(int uId) throws SQLException, IOException;
+
+	Album deleteAlbum(int id) throws SQLException;
 
 }

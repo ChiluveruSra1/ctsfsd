@@ -25,49 +25,48 @@ public class App {
 			do {
 				System.out.println("======================\n1. create Album");
 				System.out.println("2. find album by id");
-				System.out.println("3. find album by last name");
-				System.out.println("4. update album");
-				System.out.println("5. delete album");
+				System.out.println("3. update album");
+				System.out.println("4. delete album");
 				System.out.println("0. exit");
 				System.out.print("choice: ");
 				choice = Integer.parseInt(br.readLine().toString());
-				String uId;
+				int uId;
 				switch (choice) {
 				case 1:
 					/*
 					 * System.out.println("enter the no. of customers u want to add: "); int n =
 					 * Integer.parseInt(br.readLine().toString()); for (int i = 0; i < n; i++) {
 					 */
-					System.out.print("Enter your name: ");
+					System.out.print("Enter album name: ");
 					String name = br.readLine().toString();
 					Album a = new Album(name, LocalDate.now());
-
-					Image tempImage = new Image("image1 url");
+					System.out.print("Enter image url: ");
+					String url = br.readLine().toString();
+					Image tempImage = new Image(url);
 					a.setImage(tempImage);
 
 					Album a1 = dao.createAlbum(a);
 					System.out.println(a1);
 					System.err.println("Album created");
-					System.out.println("-------------------------------------------------------------\n");
 
 					// }
 					break;
-
 				case 2:
 					System.out.print("enter UID: ");
-					uId = br.readLine().toString();
-					System.out.println(dao.findbyId(uId));
+					uId = Integer.parseInt(br.readLine());
+					dao.findbyId(uId);
 					break;
-				/*
-				 * case 3: System.out.print("enter UID: "); uId = br.readLine().toString();
-				 * System.out.println(dao.findbyId(uId)); break; case 4:
-				 * System.out.print(" enter name: "); String rname = br.readLine().toString();
-				 * System.out.println(dao.findByLname(rname)); break; case 5:
-				 * System.out.print("enter UID: "); uId = br.readLine().toString();
-				 * System.out.println(dao.updateCustomer(uId)); break; case 6:
-				 * System.out.print("enter UID: "); uId = br.readLine().toString();
-				 * System.out.println(dao.deleteCustomer(uId)); break;
-				 */
+				case 3:
+					System.out.print("enter UID: ");
+					uId = Integer.parseInt(br.readLine());
+					System.out.println(dao.updateAlbum(uId));
+					break;
+				case 4:
+					System.out.print("enter UID: ");
+					uId = Integer.parseInt(br.readLine());
+					System.out.println(dao.deleteAlbum(uId));
+					break;
+
 				case 0:
 					System.exit(0);
 					break;
