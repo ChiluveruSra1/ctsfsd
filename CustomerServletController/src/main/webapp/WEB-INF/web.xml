@@ -1,0 +1,47 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>CustomerServlet</servlet-name>
+  	<display-name>CustomerServlet</display-name>
+  	<description></description>
+  	<servlet-class>customerServlet.CustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateServlet</servlet-name>
+  	<display-name>UpdateServlet</display-name>
+  	<description></description>
+  	<servlet-class>customerServlet.UpdateServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>FindIdServlet</servlet-name>
+  	<display-name>FindIdServlet</display-name>
+  	<description></description>
+  	<servlet-class>customerServlet.FindIdServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>HomeController</servlet-name>
+  	<display-name>HomeController</display-name>
+  	<description></description>
+  	<servlet-class>customerServlet.HomeController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CustomerServlet</servlet-name>
+  	<url-pattern>/add_customer1.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateServlet</servlet-name>
+  	<url-pattern>/update_customer1.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FindIdServlet</servlet-name>
+  	<url-pattern>/FindIdServlet.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>HomeController</servlet-name>
+  	<url-pattern>/HomeController.do</url-pattern>
+  </servlet-mapping>
+</web-app>

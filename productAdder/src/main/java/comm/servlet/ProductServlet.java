@@ -30,6 +30,7 @@ public class ProductServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			out.println(request.getParameter("name"));
+			
 			out.println("hello");
 			
 		}
