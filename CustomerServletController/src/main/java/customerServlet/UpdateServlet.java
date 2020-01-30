@@ -42,7 +42,7 @@ public class UpdateServlet extends HttpServlet {
 		try {
 			
 			response.setContentType("text/html");
-			Customer c1 = dao.findById(Integer.parseInt(request.getParameter("customerId")));
+			Customer c1 = dao.findById(Integer.parseInt(request.getParameter("id")));
 			c1.setFirstName(request.getParameter("fname"));
 			c1.setLastName(request.getParameter("lname"));
 			c1.setEmail(request.getParameter("email"));

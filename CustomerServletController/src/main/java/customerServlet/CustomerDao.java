@@ -9,4 +9,5 @@ public interface CustomerDao {
 	public List<Customer> getAllCustomers();
 	public void updateCustomer(Customer c);
 	public Customer findById(int id);
+
 }

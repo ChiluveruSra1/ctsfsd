@@ -39,15 +39,12 @@ private CustomerDao dao;
 			throws ServletException, IOException {
 
 		try {
-			
-			
-
 			Customer c1 = dao.findById(Integer.parseInt(request.getParameter("customerId")));
 			request.setAttribute("customer", c1);
 			RequestDispatcher view=request.getRequestDispatcher("update_customer.jsp");
 			view.forward(request, response);
 			
-		} catch (IOException e) {
+		} catch (IOException | NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
