@@ -13,6 +13,9 @@
 <body>
 
 <table border="1" width="45%">
+
+login successfull with user ${user.email}, country ${user.country }
+
 <form action="processCd">
 <tr>
   <div class="form-group row">

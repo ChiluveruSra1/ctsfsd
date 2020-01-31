@@ -14,7 +14,7 @@ public class MvcServletConfig {
 	
 	@Bean
 	public ViewResolver viewResolver() {
-		 return new InternalResourceViewResolver("/WEB-INF/view", ".jsp");
+		 return new InternalResourceViewResolver("/WEB-INF/view/", ".jsp");
 		
 	}
 	
