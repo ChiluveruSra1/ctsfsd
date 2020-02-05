@@ -1,0 +1,8 @@
+
+spring: 
+  datasource:
+    url: jdbc:mysql://localhost:3306/hr
+    username: root
+    password: welcome
+  jpa:
+    generate-ddl: true
