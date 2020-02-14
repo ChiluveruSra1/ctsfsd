@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table CSS</title>
+
+    <style>
+        table{
+            border-collapse: collapse;
+            border: yellowgreen solid 2px;
+            width: 300px;
+        }
+      tbody{
+          padding: 20px;
+      }
+        th,td{
+            padding: 20px;
+        }
+        thead{
+            background-color: green;
+        }
+        #body:hover{
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="body">
+                <td>1</td>
+                <td>sravan</td>
+                <td>sra1@mail.com</td>
+            </tr>
+            <tr id="body">
+                <td>2</td>
+                <td>faraz</td>
+                <td>faraz@mail.com</td>
+            </tr>
+            <tr id="body">
+                <td>3</td>
+                <td>alpachino</td>
+                <td>alpachi@mail.com</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

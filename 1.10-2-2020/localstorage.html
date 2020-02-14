@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage 1</title>
+</head>
+
+<body>
+    <h5 id="details">
+        <script>
+            if (typeof (localStorage != null)) {
+                //console.log("localstorge supportted")
+                localStorage.firstName = "Sravan"
+                localStorage.lastName = "Chiluveru"
+                localStorage.setItem("age", "23")
+                localStorage.setItem("email", "chiluveru@mail.com")
+
+                console.log(localStorage.firstName)
+                console.log(localStorage.lastName)
+                console.log(localStorage.getItem("age"))
+                console.log(localStorage.getItem("email"))
+
+                document.getElementById("details").innerHTML=localStorage.getItem("email")
+                           document.writeln()
+                document.writeln(localStorage.firstName)
+                document.writeln(localStorage.lastName)
+
+
+            
+            }
+            else {
+                console.log("localstorage not supported")
+
+            }
+        </script>
+    </h5>
+
+</body>
+
+</html>

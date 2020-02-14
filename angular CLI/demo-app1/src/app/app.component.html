@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<app-header></app-header>
+<div class="row " data-spy="scroll" style="background-color: bisque;">
+    <div class="col-sm-3">
+        <div style="margin-left: 10px;">
+            <app-sidebar></app-sidebar>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        <h5>App Component Content</h5>
+        <p>{{ 'length: '+l }}</p>
+        <p>{{ 'height:' +h }}</p>
+        <p [ngClass]="area">{{ 'Area: '+getArea() }}</p>
+        <p [ngClass]="perimeter">{{ 'Perimeter: '+getPerimeter() }}</p>
+       
+
+        <br>
+
+        <img [src]="imgPath" width="20%" class="img-responsive" /><br>
+        <img src="{{ imgPath + imgName}}" width="10%" /><br>
+        <button disabled>Click me</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button disabled={{isDisabled}}>Click me</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="onButtonClick($event)" [disabled]="isDisabled">Click me</button>
+
+    </div>
+</div>
+
+<app-footer></app-footer>
