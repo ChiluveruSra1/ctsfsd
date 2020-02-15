@@ -27,6 +27,9 @@ export class AppComponent {
    console.log(event)
  }
 
+
+hasError="false"
+markColor="yellow"
   
  area={
    "text-success": this.getArea()>300,
@@ -37,7 +40,50 @@ export class AppComponent {
   "text-success": this.getPerimeter()>100,
   "text-danger": this.getPerimeter()<100
 }
+
+special={
+  color:"coral",
+  fontStyle:"Italic",
+  fontWeight:"bold",
+  fontSize:"40px"
+}
+
+isLogin=true;
+
+choice1="five"
+choice2=4
  
+names=["Chiluveru","Sravan","Kumar"]
+
+para1=false;
+para2=false;
+
+/* employees=[];
+
+constructor(){
+this.employees=[
+  {"empId":1,"empName":"Chiluveru","empAge":23},
+  {"empId":2,"empName":"Sravan","empAge":22},
+  {"empId":3,"empName":"Kumar","empAge":25}
+]} */
+
+employees=[
+  {"empId":1,"empName":"Chiluveru","empAge":23},
+  {"empId":2,"empName":"Sravan","empAge":22},
+  {"empId":3,"empName":"Kumar","empAge":25}
+]
+
+/* addData(){
+  this.employees=[
+    {"empId":1,"empName":"Chiluveru","empAge":23},
+    {"empId":2,"empName":"Sravan","empAge":22},
+    {"empId":3,"empName":"Kumar","empAge":25},
+    {"empId":4,"empName":"faraz","empAge":23}
+  ]} */
+
+ /*  trackByEmpId(e,index)  {
+    return e.empId
+  } */
 
 }
 

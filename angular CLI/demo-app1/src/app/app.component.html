@@ -8,21 +8,101 @@
     </div>
     <div class="col-sm-9">
         <h5>App Component Content</h5>
-        <p>{{ 'length: '+l }}</p>
+        <!-- <p>{{ 'length: '+l }}</p>
         <p>{{ 'height:' +h }}</p>
         <p [ngClass]="area">{{ 'Area: '+getArea() }}</p>
         <p [ngClass]="perimeter">{{ 'Perimeter: '+getPerimeter() }}</p>
+        <p [ngStyle]="special">{{ 'Perimeter: '+getPerimeter() }}</p>
        
 
         <br>
 
         <img [src]="imgPath" width="20%" class="img-responsive" /><br>
         <img src="{{ imgPath + imgName}}" width="10%" /><br>
+
+        <p [style.color]="'orange'">para 1</p>
+        <p [style.color]="hasError?'red':'magenta'">para 2</p>
+        <p [style.background]="markColor">para 2</p>
+
         <button disabled>Click me</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button disabled={{isDisabled}}>Click me</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button (click)="onButtonClick($event)" [disabled]="isDisabled">Click me</button>
+        <br><br> -->
+
+
+        <p *ngIf="isDisabled; then: para1; else: para2"></p>
+        <button class="btn btn-primary" (click)="para1=true" (dblclick)="para1=false">para1</button>&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-primary" (click)="para2=true" (dblclick)="para2=false">para2</button>
+        <div *ngIf="para1">
+            <p>para1 --sdjgkjskljg</p>  
+        </div>
+        <div *ngIf="para2">
+            <p>para2 --ksjkgjskjklnmk</p>
+        </div>
+        <br><br>
+
+
+        <!--   <button class="btn btn-success" (click)="addData()">add emp data</button> -->
+        <div class="container">
+            <table class="table table-responsive">
+                <thead class="table-dark">
+                    <tr>
+                        <th style="width: 60px; text-align: center;">ID</th>
+                        <th>Name</th>
+                        <th style="width: 60px; text-align: center;">Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tbody"
+                        *ngFor="let emp of employees; index as i; even as e; odd as o; first as f; last as l;"
+                        [style.background]="f?'grey':'white'">
+                        <!--  trackBy: trackByEmpId -->
+                        <td style="width: 60px; text-align: center;">{{emp.empId}}</td>
+                        <td style="width: 400px;">{{emp.empName}}</td>
+                        <td style="width: 60px; text-align: center;">{{emp.empAge}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     </div>
 </div>
 
 <app-footer></app-footer>
+<!-- 
+<div class="container">
+<p *ngIf="isDisabled">If block</p>
+<p *ngIf="!isDisabled">Else block</p>
+</div>
+
+<p *ngIf="isDisabled; then: ifBlock; else: elseBlock"></p>
+<ng-template #ifBlock><p>another if block</p></ng-template>
+<ng-template #elseBlock><p>another else block</p></ng-template>
+
+<div class="container">
+<p *ngIf="isLogin; then: loginOut; else:loginIn;"></p>
+<ng-template #loginIn><button class="btn btn-success">LogIn</button></ng-template>
+<ng-template #loginOut><button class="btn btn-danger">LogOut</button></ng-template>
+</div>
+
+<div [ngSwitch]="choice1">
+    <p *ngSwitchCase="'one'">1</p>
+    <p *ngSwitchCase="'two'">2</p>
+    <p *ngSwitchCase="'three'">3</p>
+    <p *ngSwitchCase="'four'">4</p>
+    <p *ngSwitchDefault>Invalid choice1</p>
+</div>
+
+<div [ngSwitch]="choice2">
+    <p *ngSwitchCase="1">one</p>
+    <p *ngSwitchCase="2">two</p>
+    <p *ngSwitchCase="3">three</p>
+    <p *ngSwitchCase="4">four</p>
+    <p *ngSwitchDefault>Invalid choice2</p>
+</div>
+
+<div class="container">
+    <ul>
+        <li *ngFor="let name of names">{{ name }}</li>
+    </ul>
+</div> -->
