@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 .tbody:hover{
-    background-color: beige;
-    color:brown;
+    background-color: azure;
+    color: rgb(167, 17, 17);
 }

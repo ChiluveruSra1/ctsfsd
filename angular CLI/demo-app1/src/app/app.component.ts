@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { EmployeeService } from './employee.service';
+
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  //templateUrl: './app.component.html',
+ templateUrl: './app1.component.html'
 })
 export class AppComponent {
   title = 'demo-app1';
@@ -58,8 +60,15 @@ names=["Chiluveru","Sravan","Kumar"]
 para1=false;
 para2=false;
 
-/* employees=[];
+ employees=[];
 
+ constructor(private dataService:EmployeeService){
+   this.dataService.getEmployees().subscribe(
+     data => this.employees=data
+    )
+ }
+
+/*
 constructor(){
 this.employees=[
   {"empId":1,"empName":"Chiluveru","empAge":23},
@@ -67,11 +76,12 @@ this.employees=[
   {"empId":3,"empName":"Kumar","empAge":25}
 ]} */
 
-employees=[
-  {"empId":1,"empName":"Chiluveru","empAge":23},
-  {"empId":2,"empName":"Sravan","empAge":22},
-  {"empId":3,"empName":"Kumar","empAge":25}
-]
+/* employees=[
+  {"empId":1,"empName":"Chiluveru","empAge":23,"empGender":"male", "empSal":50000, "empDoB":'12/09/1996'},
+  {"empId":2,"empName":"Sravan","empAge":22,"empGender":"Male", "empSal":45000, "empDoB":'8/20/1996'},
+  {"empId":3,"empName":"Kumar","empAge":25,"empGender":"male", "empSal":39000, "empDoB":'6/11/1996'},
+  {"empId":4,"empName":"alita","empAge":21,"empGender":"female", "empSal":42000, "empDoB":'2/11/1996'}
+] */
 
 /* addData(){
   this.employees=[
@@ -84,6 +94,10 @@ employees=[
  /*  trackByEmpId(e,index)  {
     return e.empId
   } */
+
+
+  name1="Chilu";
+  msg="";
 
 }
 

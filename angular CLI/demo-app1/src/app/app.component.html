@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <app-header></app-header>
-<div class="row " data-spy="scroll" style="background-color: bisque;">
+<div class=" row " data-spy="scroll" style="background-color: bisque;">
     <div class="col-sm-3">
         <div style="margin-left: 10px;">
             <app-sidebar></app-sidebar>
@@ -30,9 +30,9 @@
         <br><br> -->
 
 
-        <p *ngIf="isDisabled; then: para1; else: para2"></p>
-        <button class="btn btn-primary" (click)="para1=true" (dblclick)="para1=false">para1</button>&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-primary" (click)="para2=true" (dblclick)="para2=false">para2</button>
+        <p *ngIfThen="isDisabled; then: para1; else: para2"></p>
+        <button class="btn btn-primary" (click)="para1=true" (click)="para2=false" (dblclick)="para1=false">para1</button>&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-primary" (click)="para2=true" (click)="para1=false" (dblclick)="para2=false">para2</button>
         <div *ngIf="para1">
             <p>para1 --sdjgkjskljg</p>  
         </div>
@@ -41,7 +41,6 @@
         </div>
         <br><br>
 
-
         <!--   <button class="btn btn-success" (click)="addData()">add emp data</button> -->
         <div class="container">
             <table class="table table-responsive">
@@ -49,7 +48,10 @@
                     <tr>
                         <th style="width: 60px; text-align: center;">ID</th>
                         <th>Name</th>
-                        <th style="width: 60px; text-align: center;">Age</th>
+                        <th style="text-align: center;">Age</th>
+                        <th style="text-align: center;">Gender</th>
+                        <th style="text-align: center;">Salary</th>
+                        <th style="text-align: center;">DoB</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,11 +60,28 @@
                         [style.background]="f?'grey':'white'">
                         <!--  trackBy: trackByEmpId -->
                         <td style="width: 60px; text-align: center;">{{emp.empId}}</td>
-                        <td style="width: 400px;">{{emp.empName}}</td>
-                        <td style="width: 60px; text-align: center;">{{emp.empAge}}</td>
+                        <td style="width: 200px;">{{emp.empName }}</td>
+                        <td style="text-align: center;">{{emp.empAge}}</td>
+                        <td style="text-align: center;">{{emp.empGender}}</td>
+                        <td style="width: 90px; text-align: center;">{{emp.empSal}}</td>
+                        <td>{{emp.empDoB}}</td>
                     </tr>
                 </tbody>
             </table>
+<br><br>
+            <h6>Two way data binding</h6>
+            <p>{{ name1 }}</p>
+            <input type="text" [(ngModel)]="name1"/>
+            <br><br>
+
+            <h6>Template reference variable</h6>
+            <input type="text" #myInput/>
+            <button (click)="onButtonClick(myInput.value)">Button</button>
+            <br><br>
+            <h6>{{msg}}</h6>
+            <app-test [parentData]="employees" [parentData2]="name1" (childEvent)="msg=$event"></app-test>
+        
+            <br>
         </div>
 
     </div>
