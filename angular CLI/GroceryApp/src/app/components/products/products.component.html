@@ -1,0 +1,25 @@
+<div style="margin: -110px 30px 30px 30px;">
+    <div class="row">
+        <div class="col-lg-3">
+            <ul class="list-group" *ngFor="let subcat of subCategory">
+                <li class="list-group-item">{{ subcat.subName }}</li>
+            </ul>
+        </div>
+        <div class="col-lg-9" style="padding: 0px; position: sticky;">
+            <div class="row">
+                <div class="card" style="width: 16rem; margin: 15px;" *ngFor="let p of products">
+                    <div style="height: 280px;"><br>
+                        <img class="card-img-top" src="{{_imgUrl+p.image}}" alt="Card image cap" width="50" height="250">
+                    </div>
+                    <div class="card-body">
+                    <h5 style="text-align: center;" class="card-title">{{p.productName}}</h5>
+                    <div class="row"><p class="card-text">{{p.mrp*71 | currency:'INR'}}</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#" onclick="" class="btn" style="background-color: orange;">Buy</a>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        <br><br>
+
+   
