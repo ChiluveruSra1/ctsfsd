@@ -1,0 +1,22 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item</th>
+        <th scope="col">Unit</th>
+        <th scope="col">Price</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of cart">
+        <td scope="row"><img src="{{ _imgUrl+c.image }}" alt="Card image cap" width="50px" ></td>
+        <td><h6 class="card-title">{{c.name}}</h6></td>
+        <td><p class="card-text">{{c.unit}}</p></td>
+        <td><p class="card-text">{{c.mrp | currency:'INR'}}</p></td>
+        <td><i class="fa fa-trash"></i></td>
+      
+      </tr>
+     </tbody>
+  </table>
+
