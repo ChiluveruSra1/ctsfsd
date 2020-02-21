@@ -1,1 +1,115 @@
-<p>register works!</p>
+<div
+    style="margin: -90px 250px 0px 250px; color: darkred; background-color: cadetblue; border-radius: 15px; padding: 30px;">
+    <form #registerForm="ngForm" (ngSubmit)="onSubmitForm()">
+
+        <!-- {{registerForm.value | json}} <br><br>
+        {{u|json}} -->
+        <hr>
+        <div>
+            <h5 style="text-align: center;">Registration</h5>
+        </div>
+
+        <hr>
+        <div class="form-group row" >
+            <div class="form-group col-md-6">
+                <label for="fname" class="col-form-label">Name</label>
+                <input #name="ngModel" [class.is-invalid]="name.invalid && name.touched" [(ngModel)]="u.name"
+                    pattern="^[A-Z].*$" name="fname" type="text" id="fname" class="form-control" placeholder="Name"
+                    required>
+<!--                     <small class="text-danger" [class.d-none]="name.valid || name.untouched">first letter should be
+                        capital</small> -->
+                <div *ngIf="name.errors && (name.invalid && name.touched)">
+                    <small class="text-danger" *ngIf="name.errors.required">name field is required</small>
+                    <small class="text-danger" *ngIf="name.errors.pattern">first letter should be <b>CAPITAL</b></small>
+                </div>
+                <!-- {{name.touched}} -->
+
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email" class="col-form-label">Email</label>
+                <input #emailid="ngModel" [class.is-invalid]="emailid.invalid && emailid.touched"
+                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="u.email" name="email" type="email"
+                    id="email" class="form-control" placeholder="Email" required>
+
+                    <div *ngIf="emailid.errors && (emailid.invalid && emailid.touched)">
+                        <small class="text-danger" *ngIf="emailid.errors.required">email field is required</small>
+                        <small class="text-danger" *ngIf="emailid.errors.pattern">please provide a valid
+                            email address <b>(example@asd.com) </b></small>
+                    </div>  
+               <!--  <small class="text-danger" [class.d-none]="emailid.valid || emailid.untouched">please provide a valid
+                    email address</small> -->
+            </div>
+
+        </div>
+        
+<!--         #password1="ngModel" [class.is-invalid]="password1.invalid && password1.touched"       pattern="^[A-Za-z0-9@#$&*]{7,9}*$" -->
+
+        <div class="form-group row">
+
+            <div class="form-group col-md-6">
+                <label for="password" class="col-form-label">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="confirmpassword" class="col-form-label">Confirm Password</label>
+                <input type="password" id="confirmpassword" class="form-control" placeholder="Confirm Password">
+            </div>
+
+        </div>
+
+
+        <div class="form-group row">
+            <div class="form-group col-md-6">
+                <label for="phone" class="col-form-label">Phone</label>
+                <input #phone="ngModel" [class.is-invalid]="phone.invalid && phone.touched" pattern="^\d{10}$" required
+                    [(ngModel)]="u.phone" name="phone" type="number" id="phone" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="category" class="col-form-label">Category</label>
+                <select [(ngModel)]="u.category" l name="category" id="category" class="form-control">
+                    <option value="">Please select one</option>
+                    <option *ngFor="let c of category">{{c}}</option>
+                </select>
+            </div>
+        </div>
+
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input [(ngModel)]="u.gender" class="form-check-input" type="radio" name="gender" id="genderm"
+                            value="male" checked>
+                        <label class="form-check-label" for="genderm">Male</label>
+                    </div>
+                    <div class="form-check">
+                        <input [(ngModel)]="u.gender" class="form-check-input" type="radio" name="gender" id="genderf"
+                            value="female">
+                        <label class="form-check-label" for="genderf">Female</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="form-group row">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-2">
+                <div class="form-check">
+                    <input [(ngModel)]="u.subscribe" name="subscribe" class="form-check-input" type="checkbox"
+                        id="gridCheck1" value="yes">
+                    <label class="form-check-label" for="gridCheck1">
+                        Subscribe
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="col-sm-2 ">
+                <button type="submit" [disabled]="!registerForm.valid" value="Register" class="btn btn-warning">Register</button>
+            </div>
+        </div>
+
+    </form>
+
+
+</div>

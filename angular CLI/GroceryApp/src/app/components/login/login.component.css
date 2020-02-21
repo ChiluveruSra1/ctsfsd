@@ -1,19 +1,17 @@
-div{
+/* .div1{
     border: black dotted 1px;
     width: max-content;
     height: max-content;
-    padding: 10px;
-    margin: 30px auto;
+    margin: 0px auto;
     background-color: lavender;
-    padding: 25px;
+    padding: 30px;
     box-sizing: border-box;
 }
 input[type="email"],input[type="password"]{
     width: 300px;
-    padding: 4px;
+
 }
 input[type="button"],button{
-    
     background-color: teal;
     border-style: none;
     color: white;
@@ -26,3 +24,4 @@ input[type="button"],button{
 #ihover:hover{
     background-color: ivory;
 }
+ */

@@ -1,12 +1,73 @@
-<div style="margin-top: -110px;">
-    <form action="internalCSS1.html">
+<!-- <div class="div1" style="margin-top: -90px;">
+    <form>
+
         <h2>Login</h2>
-        Email id: <br>
-        <input type="email" name="" id="ihover" required="true"><br><br>
-        password: <br>
-        <input type="password" name="" id="ihover" required="true"><br><br>
-        <button>Login</button>
-        <input type="checkbox" name="" id=""> Remember me
+        <div class="form-group">
+            Email id: <br>
+            <input type="email" name="email" id="ihover"><br><br>
+        </div>
+        <div class="form-group">
+            password: <br>
+            <input type="password" name="password" id="ihover"><br><br>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button>Login</button>
+            </div>
+            <div class="col-md-6">
+                <input type="checkbox" name="" id=""> Remember me
+            </div>
+        </div>
+
 
     </form>
+</div>
+
+
+---------------------------------------------------------- -->
+
+
+<div
+    style="margin: -90px 250px 0px 250px; color: darkred; background-color: cadetblue; border-radius: 15px; padding: 30px;">
+    <form [formGroup]="myGroup" (ngSubmit)="onLogin(myGroup.value)">
+        <hr>
+        <div>
+            <h5 style="text-align: center;">Login</h5>
+        </div>
+
+        <hr>
+        <div class="form-group row" >
+            <div class="form-group col-md-6">
+                <label for="email" class="col-form-label">Email</label>
+                <input pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" type="email"
+                    id="email" class="form-control" formControlName="email" placeholder="Email" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="password" class="col-form-label">Password</label>
+                <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password">
+        </div>
+
+        </div>
+
+        
+        <div class="form-group row">
+            <div class="col-sm-7"></div>
+            <div class="col-sm-3">
+                <div class="form-check">
+                    <input name="rember" class="form-check-input" type="checkbox"
+                        id="gridCheck1" value="yes">
+                    <label class="form-check-label" for="gridCheck1">
+                        Remember me
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-sm-2" style="float: right;">
+                <button type="submit" value="Login" class="btn btn-warning">Login</button>
+            </div>
+        </div>
+
+    </form>
+
+
 </div>
