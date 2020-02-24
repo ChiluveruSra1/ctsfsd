@@ -17,4 +17,15 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cart=JSON.parse(localStorage.cart)
   }
+
+  public total=0;
+
+  totalPrice(amt){
+    this.total+=amt;
+  }
+
+  mrp(){
+    this.total
+  } 
+
 }

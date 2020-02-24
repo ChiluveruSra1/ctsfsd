@@ -26,7 +26,7 @@
 
 ---------------------------------------------------------- -->
 
-
+<!-- reactive form control -->
 <div
     style="margin: -90px 250px 0px 250px; color: darkred; background-color: cadetblue; border-radius: 15px; padding: 30px;">
     <form [formGroup]="myGroup" (ngSubmit)="onLogin(myGroup.value)">
@@ -36,26 +36,57 @@
         </div>
 
         <hr>
-        <div class="form-group row" >
-            <div class="form-group col-md-6">
+        <div class="form-group row">
+            <div class="form-group col-md-4">
+                <label for="name" class="col-form-label">Name</label>
+                <input [class.is-invalid]="myGroup.get('name').invalid && myGroup.get('name').touched" pattern="^[A-Z].*$" name="name" type="text" id="name"
+                 class="form-control" formControlName="name" placeholder="Name">
+<!--                     <small class="text-danger" [class.d-none]="name.valid || name.untouched">first letter should be
+                        capital</small> -->
+                <div *ngIf="myGroup.get('name').errors && (myGroup.get('name').invalid && myGroup.get('name').touched)">
+                    <small class="text-danger" *ngIf="myGroup.get('name').errors.required">name field is required</small>
+                    <small class="text-danger" *ngIf="myGroup.get('name').errors.pattern">first letter should be <b>CAPITAL</b></small>
+                </div>
+                <!-- {{name.touched}} -->
+
+            </div>
+
+            <div class="form-group col-md-4">
                 <label for="email" class="col-form-label">Email</label>
                 <input pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" type="email"
-                    id="email" class="form-control" formControlName="email" placeholder="Email" required>
+                 id="email" [class.is-invalid]="myGroup.get('email').invalid && myGroup.get('email').touched"
+                    class="form-control" formControlName="email" placeholder="Email">
+
+                    <div *ngIf="myGroup.get('email').errors && (myGroup.get('email').invalid && myGroup.get('email').touched)">
+                        <small class="text-danger" *ngIf="myGroup.get('email').errors.required">email field is required</small>
+                        <small class="text-danger" *ngIf="myGroup.get('email').errors.pattern">please provide a valid
+                            email address <b>(example@asd.com) </b></small>
+                    </div>
+
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label for="password" class="col-form-label">Password</label>
-                <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password">
+                <input type="password" id="password"
+                [class.is-invalid]="myGroup.get('password').invalid && myGroup.get('password').touched"
+                class="form-control" formControlName="password"
+                    placeholder="Password">
+
+                    <div *ngIf="myGroup.get('password').errors && (myGroup.get('password').invalid && myGroup.get('password').touched)">
+                        <small class="text-danger" *ngIf="myGroup.get('password').errors.required">password field is required</small>
+                        <small class="text-danger" *ngIf="myGroup.get('password').errors.minlength">minimum length is <b>3</b></small>
+                        <small class="text-danger" *ngIf="myGroup.get('password').errors.maxlength">maximum length is <b>12</b></small>
+                    </div>
+
+            </div>
         </div>
 
-        </div>
-
-        
         <div class="form-group row">
-            <div class="col-sm-7"></div>
+            <div class="col-sm-7">
+                <button class="btn btn-warning" (click)="loadData($event)">Load Data</button>
+            </div>
             <div class="col-sm-3">
                 <div class="form-check">
-                    <input name="rember" class="form-check-input" type="checkbox"
-                        id="gridCheck1" value="yes">
+                    <input name="rember" class="form-check-input" type="checkbox" id="gridCheck1" value="yes">
                     <label class="form-check-label" for="gridCheck1">
                         Remember me
                     </label>
@@ -63,7 +94,7 @@
             </div>
 
             <div class="col-sm-2" style="float: right;">
-                <button type="submit" value="Login" class="btn btn-warning">Login</button>
+                <button type="submit" [disabled]="!myGroup.valid" value="Login" class="btn btn-warning">Login</button>
             </div>
         </div>
 

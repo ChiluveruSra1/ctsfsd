@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable, Subscription, interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GroceryApp';
+  /* private updateSubscription: Subscription;
+
+  constructor() {
+      this.updateSubscription = interval(1000).subscribe(
+        (val) => { this.updateStats()
+      }
+  );
+
+} */
 }

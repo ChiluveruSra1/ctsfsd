@@ -9,14 +9,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let c of cart">
+      <tr *ngFor="let c of cart"  >
         <td scope="row"><img src="{{ _imgUrl+c.image }}" alt="Card image cap" width="50px" ></td>
         <td><h6 class="card-title">{{c.name}}</h6></td>
         <td><p class="card-text">{{c.unit}}</p></td>
         <td><p class="card-text">{{c.mrp | currency:'INR'}}</p></td>
         <td><i class="fa fa-trash"></i></td>
+        <p>{{ totalPrice(c.mrp) }}</p>
       
       </tr>
      </tbody>
   </table>
+  <!-- <input type="text" [(ngModel)]="total" name="" id="" value="total"> -->
+  {{total}}
+<input type="button" value="Total" (click)="totalPrice(c.mrp)">
 
