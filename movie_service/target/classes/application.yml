@@ -1,0 +1,29 @@
+server:
+  port: 8060
+ 
+spring:
+  application:
+    name: movie-service
+    
+ # h2:
+ #   console:
+  #    enabled: true
+   #   settings:
+    #    web-allow-others: true
+     # path: /console
+      
+  data:
+    mongodb:
+      port: 27017
+      database: user
+      host: localhost
+      
+  main:
+    allow-bean-definition-overriding: true
+     
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
